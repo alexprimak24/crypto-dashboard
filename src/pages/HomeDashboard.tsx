@@ -1,20 +1,19 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+//AND REMOVE ESLINT DISABLE ABOVE
 // TOMORROW
 // https://docs.coingecko.com/v3.0.1/reference/endpoint-overview
 
 export default function HomeDashboard() {
-  const [cryptoSummary, setCryptoSummary] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  // const [cryptoSummary, setCryptoSummary] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState('');
   useEffect(() => {
     async function fetchMovies() {
       try {
-        setIsLoading(true);
-        setError('');
+        // setIsLoading(true);
+        // setError('');
         const res = await fetch(
-          `https://api.coingecko.com/api/v3/coins/list?x_cg_demo_api_key=${import.meta.env.VITE_COINGECO_KEY}`,
+          `https://api.coingecko.com/api/v3/simple/token_price/bitcoin?x_cg_demo_api_key=${import.meta.env.VITE_COINGECO_KEY}`,
         );
 
         if (!res.ok)
@@ -25,12 +24,13 @@ export default function HomeDashboard() {
 
         if (data.Response === 'False') throw new Error('Movie not found');
 
-        setCryptoSummary(data.Search);
+        // setCryptoSummary(data.Search);
       } catch (err) {
-        if ((err as Error).name !== 'AbortError')
-          setError((err as Error).message);
+        if ((err as Error).name !== 'AbortError') console.log('hello');
+        // setError((err as Error).message);
       } finally {
-        setIsLoading(false);
+        console.log('hello');
+        // setIsLoading(false);
       }
     }
     fetchMovies();

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useSearchCoin } from '../hooks/useSearchCoin';
+import { useKey } from '../hooks/useKey';
 
 interface SearchForCoinProps {
   query: string;
@@ -9,7 +9,7 @@ function SearchForCoin({ query, setQuery }: SearchForCoinProps) {
   const inputEl = useRef<HTMLInputElement | null>(null);
 
   //so on Enter press our search field will become active
-  useSearchCoin('Enter', () => {
+  useKey('Enter', () => {
     if (document.activeElement === inputEl.current) return;
     inputEl.current?.focus();
     setQuery('');

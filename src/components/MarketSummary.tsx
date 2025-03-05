@@ -18,7 +18,6 @@ const MarketSummary = memo(function MarketSummary() {
     market_cap_change_percentage_24h_usd,
     total_market_cap,
   } = cryptoSummary;
-  console.log(cryptoSummary);
   return (
     <div className="flex justify-between">
       {cryptoSummary && !isLoading && (

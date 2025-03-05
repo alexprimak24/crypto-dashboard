@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { fetchCryptoSummary } from '../services/api';
-import { CryptoSummary } from '../services/api/types';
+import { fetchTopCryptoList } from '../services/api';
+import { CryptoList } from '../services/api/types';
 
-export function useCryptoSummary(apiKey: string) {
-  const [cryptoSummary, setCryptoSummary] = useState<CryptoSummary | null>(
-    null,
-  );
+export function useTopCryptoList(
+  apiKey: string,
+  page: number,
+  itemsPerPage: number,
+) {
+  const [topCryptoList, setTopCryptoList] = useState<CryptoList[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -14,8 +16,8 @@ export function useCryptoSummary(apiKey: string) {
       setIsLoading(true);
       setError('');
       try {
-        const data = await fetchCryptoSummary(apiKey);
-        setCryptoSummary(data);
+        const data = await fetchTopCryptoList(apiKey, page, itemsPerPage);
+        setTopCryptoList(data);
       } catch (err: unknown) {
         if (err instanceof Error) {
           setError(err.message);
@@ -27,7 +29,7 @@ export function useCryptoSummary(apiKey: string) {
       }
     }
     loadCryptoSummary();
-  }, [apiKey]);
+  }, [apiKey, page]);
 
-  return { cryptoSummary, isLoading, error };
+  return { topCryptoList, isLoading, error };
 }

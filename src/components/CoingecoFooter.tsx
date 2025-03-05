@@ -2,7 +2,7 @@ import React from 'react';
 import PriceDataPoweredBy from '../assets/CGLogoAttibution.png';
 export default function CoingecoFooter() {
   return (
-    <div className="flex flex-row justify-between text-xl">
+    <div className="m-8 flex flex-row justify-between text-xl">
       <p className="h-[72px] text-center leading-[72px]">
         Powered by{' '}
         <a

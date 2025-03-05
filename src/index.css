@@ -1,11 +1,5 @@
 @import 'tailwindcss';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
 html {
   /* font-size: 62.5%; */
   box-sizing: border-box;
@@ -14,6 +8,7 @@ html {
 }
 
 body {
+  padding: 20px;
   margin: 0 auto;
   font-family: 'Manrope', sans-serif;
   color: var(--color-light--2);

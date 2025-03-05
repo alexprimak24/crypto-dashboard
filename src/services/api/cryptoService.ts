@@ -1,6 +1,8 @@
 export interface CryptoSummary {
   active_cryptocurrencies: number;
   market_cap_percentage: { btc: number; eth: number; sol: number };
+  market_cap_change_percentage_24h_usd: number;
+  total_market_cap: { btcC: number; ethC: number; bnbC: number };
 }
 
 const options = { method: 'GET', headers: { accept: 'application/json' } };
@@ -16,9 +18,15 @@ export async function fetchCryptoSummary(
     throw new Error('Something went wrong with fetching currencies');
   }
   const data = await res.json();
+  console.log(data);
   const { btc, eth, sol } = data.data.market_cap_percentage;
+  const { btc: btcC, eth: ethC, bnb: bnbC } = data.data.total_market_cap;
+
   return {
     active_cryptocurrencies: data.data.active_cryptocurrencies,
     market_cap_percentage: { btc, eth, sol },
+    market_cap_change_percentage_24h_usd:
+      data.data.market_cap_change_percentage_24h_usd,
+    total_market_cap: { btcC, ethC, bnbC },
   };
 }

@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+// TOMORROW
+// https://docs.coingecko.com/v3.0.1/reference/endpoint-overview
 
 export default function HomeDashboard() {
   const [cryptoSummary, setCryptoSummary] = useState([]);
@@ -12,7 +14,7 @@ export default function HomeDashboard() {
         setIsLoading(true);
         setError('');
         const res = await fetch(
-          `https://api.coingecko.com/api/v3/ping?x_cg_demo_api_key=${import.meta.env.VITE_COINGECO_KEY}`,
+          `https://api.coingecko.com/api/v3/coins/list?x_cg_demo_api_key=${import.meta.env.VITE_COINGECO_KEY}`,
         );
 
         if (!res.ok)

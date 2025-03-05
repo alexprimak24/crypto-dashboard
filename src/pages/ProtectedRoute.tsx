@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 // set up context later to be able to check if user is logged in
 export default function ProtectedRoute() {
   //   const { isAuthenticated } = useAuth();

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useTopCryptoList } from '../hooks/useTopCryptoList';
 
 const COINS_TO_SHOW = 10;
-
+// CHECK OUT ABOUT AMOUNT OF RERENDERS once I finish with that component
 export default function CoinsList() {
   const [page, setPage] = useState(1);
   const { topCryptoList, isLoading, error } = useTopCryptoList(

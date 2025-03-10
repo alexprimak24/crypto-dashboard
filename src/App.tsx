@@ -4,7 +4,7 @@ import HomeDashboard from './pages/HomeDashboard';
 import PageNotFound from './pages/PageNotFound';
 import MyPortfolio from './pages/(logged-in)/MyPortfolio';
 import CoinDetails from './pages/CoinDetails';
-import CoingecoFooter from './components/CoingecoFooter';
+import CoingecoFooter from './components/ui/CoingecoFooter';
 
 function App() {
   return (

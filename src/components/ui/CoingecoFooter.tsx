@@ -1,5 +1,5 @@
 import React from 'react';
-import PriceDataPoweredBy from '../assets/CGLogoAttibution.png';
+import PriceDataPoweredBy from '../../assets/CGLogoAttibution.png';
 export default function CoingecoFooter() {
   return (
     <div className="m-8 flex flex-row justify-between text-xl">

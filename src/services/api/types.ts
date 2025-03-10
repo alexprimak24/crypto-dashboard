@@ -6,6 +6,7 @@ export interface CryptoSummary {
 }
 
 export interface CryptoList {
+  id: string;
   market_cap_rank: number;
   name: string;
   symbol: string;

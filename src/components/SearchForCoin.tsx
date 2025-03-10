@@ -16,7 +16,7 @@ function SearchForCoin({ query, setQuery }: SearchForCoinProps) {
   });
   return (
     <input
-      className="h-8 w-5/6 self-center rounded-full border border-sky-400 px-2"
+      className="mx-8 h-10 w-full max-w-sm rounded-full border border-sky-400 bg-[#242424] px-4 text-gray-200 placeholder-gray-500 transition focus:ring-2 focus:ring-sky-400 focus:outline-none"
       type="text"
       placeholder="Search coin..."
       value={query}

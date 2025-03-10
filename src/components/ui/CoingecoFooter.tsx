@@ -2,14 +2,14 @@ import React from 'react';
 import PriceDataPoweredBy from '../../assets/CGLogoAttibution.png';
 export default function CoingecoFooter() {
   return (
-    <div className="m-8 flex flex-row justify-between text-xl">
-      <p className="h-[72px] text-center leading-[72px]">
+    <footer className="mx-8 my-8 flex flex-row items-center justify-between text-xl text-gray-300">
+      <p className="leading-[72px]">
         Powered by{' '}
         <a
           href="https://www.coingecko.com/en/api/"
           target="_blank"
           rel="noreferrer"
-          className="text-sky-600"
+          className="text-sky-400 transition-colors hover:text-sky-300"
         >
           CoinGecko API
         </a>
@@ -19,8 +19,12 @@ export default function CoingecoFooter() {
         target="_blank"
         rel="noreferrer"
       >
-        <img src={PriceDataPoweredBy} alt="CoinGecko Price Data Powered By" />
+        <img
+          src={PriceDataPoweredBy}
+          alt="CoinGecko Price Data Powered By"
+          className="h-16 object-contain"
+        />
       </a>
-    </div>
+    </footer>
   );
 }

@@ -15,8 +15,8 @@ export default function CoinsList() {
   );
 
   return (
-    <div className="flex w-full flex-col gap-4">
-      <div className="">
+    <div className="min-h-screen px-4 pt-2 pb-8">
+      <div className="mx-auto max-w-7xl">
         {isLoading && <Spinner />}
         {error && (
           <Message message="Something went wrong while fetching topCryptoList" />
@@ -26,9 +26,19 @@ export default function CoinsList() {
           topCryptoList.map((topCryptoCoin) => (
             <CoinItem coinInfo={topCryptoCoin} key={topCryptoCoin.id} />
           ))}
-        <div className="flex gap-2 self-start">
-          <button onClick={() => setPage((page) => page - 1)}>Back</button>
-          <button onClick={() => setPage((page) => page + 1)}>Next</button>
+        <div className="mt-4 flex justify-end gap-3">
+          <button
+            onClick={() => setPage((page) => Math.max(page - 1, 1))}
+            className="rounded bg-gray-700 px-4 py-2 font-bold text-gray-200 hover:bg-gray-600"
+          >
+            Back
+          </button>
+          <button
+            onClick={() => setPage((page) => page + 1)}
+            className="rounded bg-gray-700 px-4 py-2 font-bold text-gray-200 hover:bg-gray-600"
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>

@@ -12,54 +12,67 @@ const MarketSummary = memo(function MarketSummary() {
   if (error) return <Message message={error} />;
 
   if (!cryptoSummary) return null;
+
   const {
     market_cap_percentage,
     active_cryptocurrencies,
     market_cap_change_percentage_24h_usd,
     total_market_cap,
   } = cryptoSummary;
+
   return (
-    <div className="flex justify-between">
-      {cryptoSummary && !isLoading && (
-        <>
-          <div className="w-64">
-            Active cryptocurrencies{' '}
-            <span className="text-sky-400">{active_cryptocurrencies}</span>
+    <div className="px-4 py-6">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-col justify-between rounded-lg bg-[#242424] p-4 shadow transition-shadow hover:shadow-md">
+          <h2 className="mb-2 text-xl font-semibold text-gray-100">
+            Active Cryptocurrencies
+          </h2>
+          <p className="text-3xl font-bold text-sky-400">
+            {active_cryptocurrencies.toLocaleString()}
+          </p>
+        </div>
+        <div className="flex flex-col justify-between rounded-lg bg-[#242424] p-4 shadow transition-shadow hover:shadow-md">
+          <h2 className="mb-2 text-xl font-semibold text-gray-100">
+            Market Dominance
+          </h2>
+          <ul className="space-y-1 text-gray-300">
+            {Object.entries(market_cap_percentage).map(([key, value]) => (
+              <li key={key} className="flex justify-between">
+                <span className="font-medium">{key.toUpperCase()}:</span>
+                <span className="ml-2 text-sky-400">{value.toFixed(2)}%</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex flex-col justify-between rounded-lg bg-[#242424] p-4 shadow transition-shadow hover:shadow-md">
+          <h2 className="mb-2 text-xl font-semibold text-gray-100">
+            Total Cap of Top Currencies
+          </h2>
+          <p className="mb-2 text-sm text-gray-400">
+            ("data may not be accurate")
+          </p>
+          <ul className="space-y-1 text-gray-300">
+            {Object.entries(total_market_cap).map(([key, value]) => (
+              <li key={key} className="flex justify-between">
+                <span className="font-medium">
+                  {key.slice(0, -1).toUpperCase()}:
+                </span>
+                <span className="ml-2 text-sky-400">
+                  {Math.round(value).toLocaleString()}$
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex flex-col justify-between rounded-lg bg-[#242424] p-4 shadow transition-shadow hover:shadow-md">
+          <h2 className="mb-2 text-xl font-semibold text-gray-100">
+            Total Market Cap Change (24h)
+          </h2>
+          <div className="text-3xl font-bold text-sky-400">
+            {market_cap_change_percentage_24h_usd.toFixed(2)}%
           </div>
-          <div className="">
-            <h2>Market Dominance of Top Currencies:</h2>
-            <ul>
-              {Object.entries(market_cap_percentage).map(([key, value]) => (
-                <li key={key}>
-                  {key.toUpperCase()}: With Market Cap{' '}
-                  <span className="text-sky-400">{value.toFixed(2)}</span>%
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="">
-            <h2>Total Cap of Top Currencies: </h2>
-            <p>"data may be not accurate"</p>
-            <ul>
-              {Object.entries(total_market_cap).map(([key, value]) => (
-                <li key={key}>
-                  {key.slice(0, -1).toUpperCase()}: With Market Cap{' '}
-                  <span className="text-sky-400">{Math.round(value)}</span>$
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="">
-            <h2>Total market cap change 24hr </h2>
-            <div>
-              <span className="text-sky-400">
-                {market_cap_change_percentage_24h_usd.toFixed(2)}
-              </span>
-              %
-            </div>
-          </div>
-        </>
-      )}
+        </div>
+      </div>
     </div>
   );
 });

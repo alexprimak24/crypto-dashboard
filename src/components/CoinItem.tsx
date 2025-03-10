@@ -20,30 +20,45 @@ const CoinItem = memo(function CoinItem({
     circulating_supply,
   } = coinInfo;
   return (
-    <div className="mt-2 grid grid-cols-9 gap-4">
-      <div className="col-span-1">{market_cap_rank}</div>
-      <div className="col-span-2 flex gap-2">
-        <img src={image} alt="CoinLogo" className="size-5" />
-        <p>{name} </p> <span>{symbol}</span>
+    <div className="mt-2 grid w-full grid-cols-9 items-center gap-4 rounded-lg bg-[#242424] p-4 shadow transition-shadow hover:shadow-md">
+      <div className="col-span-1 text-center font-semibold text-gray-300">
+        {market_cap_rank}
       </div>
-      <div className="col-span-1">${current_price}</div>
-      <div className="col-span-1">${ath}</div>
+      <div className="col-span-2 flex items-center gap-2">
+        <img
+          src={image}
+          alt={`${name} logo`}
+          className="h-8 w-8 object-contain"
+        />
+        <div>
+          <p className="font-medium text-gray-100">{name}</p>
+          <span className="text-sm text-gray-400 uppercase">{symbol}</span>
+        </div>
+      </div>
+      <div className="col-span-1 text-right font-semibold text-gray-100">
+        ${current_price.toLocaleString()}
+      </div>
+      <div className="col-span-1 text-right text-sm text-gray-400">
+        ${ath.toLocaleString()}
+      </div>
       <div
         className={clsx(
-          price_change_24h < 0 ? 'text-red-400' : 'text-green-500',
-          'col-span-2',
+          'col-span-2 text-right font-medium',
+          price_change_24h < 0 ? 'text-red-500' : 'text-green-500',
         )}
       >
-        {price_change_24h > 0.01 || price_change_24h < -0.01
+        {Math.abs(price_change_24h) > 0.01
           ? price_change_24h.toFixed(2)
           : price_change_24h}
         $ (<span>{price_change_percentage_24h.toFixed(2)}%</span>)
       </div>
-      <div className="col-span-2 flex flex-col gap-2">
-        <label htmlFor={id}>{circulating_supply.toFixed() + symbol}</label>
+      <div className="col-span-2 flex flex-col justify-center">
+        <label htmlFor={id} className="mb-1 text-sm text-gray-300">
+          {circulating_supply.toLocaleString()} {symbol}
+        </label>
         <progress
           id={id}
-          className="bg-[#00ff00]"
+          className="h-2 w-full overflow-hidden rounded-full"
           max={max_supply}
           value={circulating_supply}
         ></progress>

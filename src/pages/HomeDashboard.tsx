@@ -6,7 +6,7 @@ import CoinsList from '../components/CoinsList';
 function HomeDashboard() {
   const [query, setQuery] = useState('');
   return (
-    <div className="flex flex-col gap-5">
+    <div className="mx-auto flex w-full max-w-7xl flex-col gap-5">
       <MarketSummary />
       <SearchForCoin query={query} setQuery={setQuery} />
       <CoinsList />

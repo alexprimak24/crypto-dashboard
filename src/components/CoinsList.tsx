@@ -5,22 +5,20 @@ import Message from './ui/Message';
 import { CryptoList } from '../services/api/types';
 
 interface CoinListProps {
-  topCryptoData: {
-    topCryptoList: CryptoList[] | null;
-    isLoading: boolean;
-    error: string;
-  };
+  topCryptoList: CryptoList[] | null;
+  isLoading: boolean;
+  error: string;
   setPage: React.Dispatch<React.SetStateAction<number>>;
   page: number;
 }
 // CHECK OUT ABOUT AMOUNT OF RERENDERS once I finish with that component
 export default function CoinsList({
-  topCryptoData,
+  topCryptoList,
+  isLoading,
+  error,
   setPage,
   page,
 }: CoinListProps) {
-  const { topCryptoList, isLoading, error } = topCryptoData;
-
   return (
     <div className="min-h-screen px-4 pt-2 pb-8">
       <div className="mx-auto max-w-7xl">

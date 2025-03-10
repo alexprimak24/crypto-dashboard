@@ -27,11 +27,9 @@ function HomeDashboard() {
       <MarketSummary />
       <SearchForCoin query={query} setQuery={setQuery} />
       <CoinsList
-        topCryptoData={{
-          topCryptoList: filteredTopCryptoList,
-          isLoading: topCryptoData.isLoading,
-          error: topCryptoData.error,
-        }}
+        topCryptoList={filteredTopCryptoList}
+        isLoading={topCryptoData.isLoading}
+        error={topCryptoData.error}
         setPage={setPage}
         page={page}
       />

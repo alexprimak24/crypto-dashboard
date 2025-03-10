@@ -11,9 +11,14 @@ interface CoinListProps {
     error: string;
   };
   setPage: React.Dispatch<React.SetStateAction<number>>;
+  page: number;
 }
 // CHECK OUT ABOUT AMOUNT OF RERENDERS once I finish with that component
-export default function CoinsList({ topCryptoData, setPage }: CoinListProps) {
+export default function CoinsList({
+  topCryptoData,
+  setPage,
+  page,
+}: CoinListProps) {
   const { topCryptoList, isLoading, error } = topCryptoData;
 
   return (
@@ -40,14 +45,15 @@ export default function CoinsList({ topCryptoData, setPage }: CoinListProps) {
           ))}
         <div className="mt-4 flex justify-end gap-3">
           <button
+            disabled={page === 1}
             onClick={() => setPage((page) => Math.max(page - 1, 1))}
-            className="rounded bg-gray-700 px-4 py-2 font-bold text-gray-200 hover:bg-gray-600"
+            className="cursor-pointer rounded bg-gray-700 px-4 py-2 font-bold text-gray-200 hover:bg-gray-600 disabled:opacity-50"
           >
             Back
           </button>
           <button
             onClick={() => setPage((page) => page + 1)}
-            className="rounded bg-gray-700 px-4 py-2 font-bold text-gray-200 hover:bg-gray-600"
+            className="cursor-pointer rounded bg-gray-700 px-4 py-2 font-bold text-gray-200 hover:bg-gray-600"
           >
             Next
           </button>

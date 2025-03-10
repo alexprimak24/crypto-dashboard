@@ -20,6 +20,7 @@ function SearchForCoin({ query, setQuery }: SearchForCoinProps) {
       type="text"
       placeholder="Search coin..."
       value={query}
+      aria-label=""
       onChange={(e) => setQuery(e.target.value)}
       //   so on enter press we will make that input active
       ref={inputEl}

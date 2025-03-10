@@ -33,6 +33,7 @@ function HomeDashboard() {
           error: topCryptoData.error,
         }}
         setPage={setPage}
+        page={page}
       />
     </div>
   );

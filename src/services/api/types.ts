@@ -18,3 +18,12 @@ export interface CryptoList {
   max_supply: number;
   circulating_supply: number;
 }
+
+export interface CoinInfo {
+  id: string;
+  name: string;
+  image: { thumb: string };
+  categories: string[];
+  describtion: { en: string };
+  market_data: { currentprice: { usd: number } };
+}

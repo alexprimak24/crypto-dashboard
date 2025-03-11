@@ -36,11 +36,13 @@ export default function CoinsList({
         {error && (
           <Message message="Something went wrong while fetching topCryptoList" />
         )}
-        {!isLoading &&
-          topCryptoList &&
-          topCryptoList.map((topCryptoCoin) => (
-            <CoinItem coinInfo={topCryptoCoin} key={topCryptoCoin.id} />
-          ))}
+        <ul>
+          {!isLoading &&
+            topCryptoList &&
+            topCryptoList.map((topCryptoCoin) => (
+              <CoinItem coinInfo={topCryptoCoin} key={topCryptoCoin.id} />
+            ))}
+        </ul>
         <div className="mt-4 flex justify-end gap-3">
           <button
             disabled={page === 1}

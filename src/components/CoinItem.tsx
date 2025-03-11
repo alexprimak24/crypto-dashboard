@@ -1,11 +1,13 @@
 import React, { memo } from 'react';
 import { CryptoList } from '../services/api/types';
 import { clsx } from 'clsx';
+import { useNavigate } from 'react-router-dom';
 const CoinItem = memo(function CoinItem({
   coinInfo,
 }: {
   coinInfo: CryptoList;
 }) {
+  const navigate = useNavigate();
   const {
     id,
     market_cap_rank,
@@ -19,8 +21,16 @@ const CoinItem = memo(function CoinItem({
     max_supply,
     circulating_supply,
   } = coinInfo;
+
+  function handleClick() {
+    navigate(`/coin/${id}`);
+  }
+
   return (
-    <div className="mt-2 grid w-full grid-cols-9 items-center gap-4 rounded-lg bg-[#242424] p-4 shadow transition-shadow hover:shadow-md">
+    <li
+      onClick={handleClick}
+      className="mt-2 grid w-full cursor-pointer grid-cols-9 items-center gap-4 rounded-lg bg-[#242424] p-4 duration-300 ease-in hover:bg-[#383838]"
+    >
       <div className="col-span-1 text-center font-semibold text-gray-300">
         {market_cap_rank}
       </div>
@@ -63,7 +73,7 @@ const CoinItem = memo(function CoinItem({
           value={circulating_supply}
         ></progress>
       </div>
-    </div>
+    </li>
   );
 });
 

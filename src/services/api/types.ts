@@ -22,8 +22,12 @@ export interface CryptoList {
 export interface CoinInfo {
   id: string;
   name: string;
-  image: { thumb: string };
+  image: { small: string };
   categories: string[];
-  describtion: { en: string };
-  market_data: { currentprice: { usd: number } };
+  market_cap_rank: number;
+  description: { en: string };
+  market_data: {
+    current_price: { usd: number };
+    price_change_percentage_24h: number;
+  };
 }

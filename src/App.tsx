@@ -8,6 +8,15 @@ import Error from './components/ui/Error';
 import AppLayout from './components/AppLayout';
 // import { fetchCoinInfo } from './services/api';
 
+// TODO
+// 1.VALIDATE if the user enters the coin which doesn't exist
+// 2. Add auth with Appwrite
+// 2.1 Create form at the bottom with auth
+// 2.2 Implement signup and login logic
+// 2.3 Create Protected route to be forbidden to move to user profile without being auth
+// 3. implement ability for the user to add coin to watchlist from coin info page
+// 4. The same goes to Dashboard coin representation
+
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -34,14 +43,6 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
-  // async function a() {
-  //   const data = await fetchCoinInfo(
-  //     import.meta.env.VITE_COINGECO_KEY,
-  //     'bitcoin',
-  //   );
-  //   console.log(data);
-  // }
-  // a();
   return <RouterProvider router={router} />;
 }
 

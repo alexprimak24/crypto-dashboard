@@ -6,6 +6,7 @@ import MyPortfolio from './pages/(logged-in)/MyPortfolio';
 import CoinDetails, { loader as coinDetailsLoader } from './pages/CoinDetails';
 import Error from './components/ui/Error';
 import AppLayout from './components/AppLayout';
+import Login from './pages/Login';
 // import { fetchCoinInfo } from './services/api';
 
 // TODO
@@ -27,9 +28,14 @@ const router = createBrowserRouter([
         element: <HomeDashboard />,
       },
       {
+        path: '/login',
+        element: <Login />,
+      },
+      {
         path: '/user/:id',
         element: <MyPortfolio />,
       },
+
       {
         path: '/coin/:id',
         element: <CoinDetails />,

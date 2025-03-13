@@ -1,12 +1,12 @@
 import React from 'react';
-import Logo from './ui/Logo';
+import Header from './Header';
 import CoingecoFooter from './ui/CoingecoFooter';
 import { Outlet } from 'react-router-dom';
 
 export default function AppLayout() {
   return (
     <>
-      <Logo />
+      <Header />
       <main>
         <Outlet />
       </main>

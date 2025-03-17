@@ -58,6 +58,14 @@ export default function SearchForCoinModal({
               Show all {coins.length} results
             </button>
           )}
+          {showFullResult && (
+            <button
+              onClick={() => setShowFullResult(false)}
+              className="mt-4 w-full cursor-pointer rounded bg-sky-600 py-2 font-bold text-white transition duration-200 ease-in-out hover:bg-sky-700"
+            >
+              Hide full results
+            </button>
+          )}
         </div>
       </div>
     </div>

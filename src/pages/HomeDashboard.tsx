@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import MarketSummary from '../components/MarketSummary';
 import CoinsList from '../components/CoinsList';
 import { useTopCryptoList } from '../hooks/useTopCryptoList';

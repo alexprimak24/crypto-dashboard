@@ -1,4 +1,3 @@
-import React from 'react';
 import PriceDataPoweredBy from '../../assets/CGLogoAttibution.png';
 export default function CoingecoFooter() {
   return (

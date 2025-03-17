@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from './Header';
 import CoingecoFooter from './ui/CoingecoFooter';
 import { Outlet, useNavigation } from 'react-router-dom';

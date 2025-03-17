@@ -1,4 +1,3 @@
-import React from 'react';
 import { CoinSearchResult } from '../services/api/types';
 import { useNavigate } from 'react-router-dom';
 

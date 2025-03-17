@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { CryptoList } from '../services/api/types';
 import { clsx } from 'clsx';
 import { useNavigate } from 'react-router-dom';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { LoaderFunctionArgs, useLoaderData } from 'react-router-dom';
 import { fetchCoinInfo } from '../services/api';
 import { CoinInfo } from '../services/api/types';

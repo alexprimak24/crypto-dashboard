@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { useCryptoSummary } from '../hooks/useCryptoSummary';
 import Loader from './ui/Loader';
 import Message from './ui/Message';

@@ -8,6 +8,11 @@ import SearchedCoin from './SearchedCoin';
 interface SearchForCoinModalProps {
   setIsSearchModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+const handleModalContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  e.stopPropagation();
+};
+
 export default function SearchForCoinModal({
   setIsSearchModalOpen,
 }: SearchForCoinModalProps) {
@@ -18,17 +23,15 @@ export default function SearchForCoinModal({
   );
   const [showFullResult, setShowFullResult] = useState(false);
 
-  const handleModalContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-  };
   return (
     <div
       onClick={() => setIsSearchModalOpen(false)}
+      role="dialog"
       className="bg-opacity-50 fixed inset-0 z-10 flex items-center justify-center bg-[#181818]/20 backdrop-blur-sm"
     >
       <div
         onClick={handleModalContentClick}
-        className="absolute top-[10%] left-1/2 z-50 h-[50%] w-[50%] -translate-x-1/2 transform rounded-3xl bg-[#181818] p-6 text-white shadow-lg"
+        className="absolute top-[10%] left-1/2 h-[50%] w-[50%] -translate-x-1/2 transform rounded-3xl bg-[#181818] p-6 text-white shadow-lg"
       >
         <div className="flex flex-col justify-between">
           <h1 className="mb-4 text-xl font-bold">Search Coins</h1>
@@ -37,7 +40,7 @@ export default function SearchForCoinModal({
           </div>
           {isLoading && <Loader />}
 
-          {error !== '' && <ErrorMessage message={error} />}
+          {error && <ErrorMessage message={error} />}
 
           {coins.length === 0 && !isLoading && (
             <h2 className="mt-5 flex items-center justify-center text-xl">
@@ -47,9 +50,13 @@ export default function SearchForCoinModal({
 
           <ul className="mt-4 max-h-[400px] divide-y divide-gray-700 overflow-y-scroll">
             {!showFullResult &&
-              coins.slice(0, 3).map((coin) => <SearchedCoin coinInfo={coin} />)}
+              coins
+                .slice(0, 3)
+                .map((coin) => <SearchedCoin coinInfo={coin} key={coin.id} />)}
             {showFullResult &&
-              coins.map((coin) => <SearchedCoin coinInfo={coin} />)}
+              coins.map((coin) => (
+                <SearchedCoin coinInfo={coin} key={coin.id} />
+              ))}
           </ul>
           {!showFullResult && query && (
             <button
@@ -62,7 +69,7 @@ export default function SearchForCoinModal({
           {showFullResult && (
             <button
               onClick={() => setShowFullResult(false)}
-              className="mt-4 w-full cursor-pointer rounded bg-sky-600 py-2 font-bold text-white transition duration-200 ease-in-out hover:bg-sky-700"
+              className="mt-4 w-full cursor-pointer rounded bg-cyan-600 py-2 font-bold text-white transition duration-200 ease-in-out hover:bg-cyan-700"
             >
               Hide full results
             </button>

@@ -5,7 +5,7 @@ import Message from './ui/Message';
 
 const MarketSummary = memo(function MarketSummary() {
   const { cryptoSummary, isLoading, error } = useCryptoSummary(
-    import.meta.env.VITE_COINGECO_KEY,
+    import.meta.env.VITE_COINGECO_API,
   );
 
   if (isLoading) return <Loader />;

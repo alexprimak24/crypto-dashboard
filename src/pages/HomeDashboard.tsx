@@ -8,7 +8,7 @@ const COINS_TO_SHOW = 10;
 function HomeDashboard() {
   const [page, setPage] = useState(1);
   const topCryptoData = useTopCryptoList(
-    import.meta.env.VITE_COINGECO_KEY,
+    import.meta.env.VITE_COINGECO_API,
     page,
     COINS_TO_SHOW,
   );

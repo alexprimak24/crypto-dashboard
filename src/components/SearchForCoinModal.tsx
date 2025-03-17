@@ -19,7 +19,7 @@ export default function SearchForCoinModal({
   const [query, setQuery] = useState('');
   const { coins, isLoading, error } = useSearchCoins(
     query,
-    import.meta.env.VITE_COINGECO_KEY,
+    import.meta.env.VITE_COINGECO_API,
   );
   const [showFullResult, setShowFullResult] = useState(false);
 

@@ -73,7 +73,7 @@ export default function CoinDetails() {
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const order = await fetchCoinInfo(
-    import.meta.env.VITE_COINGECO_KEY,
+    import.meta.env.VITE_COINGECO_API,
     params.id!,
   );
   return order;

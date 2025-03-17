@@ -4,13 +4,18 @@ import { useNavigate } from 'react-router-dom';
 
 interface SearchedCoinProps {
   coinInfo: CoinSearchResult;
+  closeModal: () => void;
 }
-export default function SearchedCoin({ coinInfo }: SearchedCoinProps) {
+export default function SearchedCoin({
+  coinInfo,
+  closeModal,
+}: SearchedCoinProps) {
   const { market_cap_rank, id, symbol, name, thumb } = coinInfo;
   const navigate = useNavigate();
 
   function handleClick() {
     navigate(`/coin/${id}`);
+    closeModal();
   }
 
   return (

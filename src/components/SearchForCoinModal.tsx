@@ -52,10 +52,20 @@ export default function SearchForCoinModal({
             {!showFullResult &&
               coins
                 .slice(0, 3)
-                .map((coin) => <SearchedCoin coinInfo={coin} key={coin.id} />)}
+                .map((coin) => (
+                  <SearchedCoin
+                    coinInfo={coin}
+                    key={coin.id}
+                    closeModal={() => setIsSearchModalOpen(false)}
+                  />
+                ))}
             {showFullResult &&
               coins.map((coin) => (
-                <SearchedCoin coinInfo={coin} key={coin.id} />
+                <SearchedCoin
+                  coinInfo={coin}
+                  key={coin.id}
+                  closeModal={() => setIsSearchModalOpen(false)}
+                />
               ))}
           </ul>
           {!showFullResult && query && (

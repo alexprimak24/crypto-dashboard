@@ -5,7 +5,7 @@ import { useDebounce } from './useDebounce';
 
 export function useSearchCoins(query: string, apiKey: string) {
   //to prevent a lot of unnecessary api calls
-  const debouncedQuery = useDebounce(query, 200);
+  const debouncedQuery = useDebounce(query, 100);
   const [coins, setCoins] = useState<CoinSearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

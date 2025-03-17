@@ -16,6 +16,7 @@ export default function CoinDetails() {
   }: CoinInfo = useLoaderData();
 
   const { current_price, price_change_percentage_24h } = market_data;
+
   return (
     <div className="mx-auto max-w-7xl rounded-lg bg-[#181818] p-8 text-gray-200 shadow-lg">
       <div className="flex items-center gap-4">

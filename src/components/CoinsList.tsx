@@ -1,6 +1,6 @@
 import React from 'react';
 import CoinItem from './CoinItem';
-import Spinner from './ui/Spinner';
+import Loader from './ui/Loader';
 import Message from './ui/Message';
 import { CryptoList } from '../services/api/types';
 
@@ -32,7 +32,7 @@ export default function CoinsList({
           <h4 className="col-span-2 text-right">24h %</h4>
           <h4 className="col-span-2 text-center">Supply</h4>
         </div>
-        {isLoading && <Spinner />}
+        {isLoading && <Loader />}
         {error && (
           <Message message="Something went wrong while fetching topCryptoList" />
         )}

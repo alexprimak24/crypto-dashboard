@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useCryptoSummary } from '../hooks/useCryptoSummary';
-import Spinner from './ui/Spinner';
+import Loader from './ui/Loader';
 import Message from './ui/Message';
 
 const MarketSummary = memo(function MarketSummary() {
@@ -8,7 +8,7 @@ const MarketSummary = memo(function MarketSummary() {
     import.meta.env.VITE_COINGECO_KEY,
   );
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <Loader />;
   if (error) return <Message message={error} />;
 
   if (!cryptoSummary) return null;

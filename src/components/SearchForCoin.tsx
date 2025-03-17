@@ -5,6 +5,7 @@ interface SearchForCoinProps {
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
 }
+
 function SearchForCoin({ query, setQuery }: SearchForCoinProps) {
   const inputEl = useRef<HTMLInputElement | null>(null);
 

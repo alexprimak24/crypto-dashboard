@@ -6,7 +6,7 @@ interface SearchForCoinProps {
   setQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function SearchForCoin({ query, setQuery }: SearchForCoinProps) {
+function SearchField({ query, setQuery }: SearchForCoinProps) {
   const inputEl = useRef<HTMLInputElement | null>(null);
 
   //so on Enter press our search field will become active
@@ -17,7 +17,7 @@ function SearchForCoin({ query, setQuery }: SearchForCoinProps) {
   });
   return (
     <input
-      className="mx-8 h-10 w-full max-w-sm rounded-full border border-sky-400 bg-[#242424] px-4 text-gray-200 placeholder-gray-500 transition focus:ring-2 focus:ring-sky-400 focus:outline-none"
+      className="h-10 w-full max-w-sm rounded-full border border-sky-400 bg-[#242424] px-4 text-gray-200 placeholder-gray-500 transition focus:ring-2 focus:ring-sky-400 focus:outline-none"
       type="text"
       placeholder="Search coin..."
       value={query}
@@ -29,4 +29,4 @@ function SearchForCoin({ query, setQuery }: SearchForCoinProps) {
   );
 }
 
-export default SearchForCoin;
+export default SearchField;

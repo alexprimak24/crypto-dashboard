@@ -1,9 +1,11 @@
 import { CoinInfo, CryptoList, CryptoSummary } from './types';
 
+const API_URL = 'https://api.coingecko.com/api/v3';
+
 export async function fetchCryptoSummary(
   apiKey: string,
 ): Promise<CryptoSummary> {
-  const res = await fetch('https://api.coingecko.com/api/v3/global', {
+  const res = await fetch(`${API_URL}/global`, {
     headers: {
       accept: 'application/json',
       'x-cg-demo-api-key': apiKey,
@@ -31,7 +33,7 @@ export async function fetchTopCryptoList(
   itemsPerPage: number,
 ): Promise<CryptoList[]> {
   const res = await fetch(
-    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=${itemsPerPage}&page=${page}`,
+    `${API_URL}/coins/markets?vs_currency=usd&per_page=${itemsPerPage}&page=${page}`,
     {
       headers: {
         accept: 'application/json',
@@ -50,7 +52,21 @@ export async function fetchCoinInfo(
   apiKey: string,
   id: string,
 ): Promise<CoinInfo> {
-  const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`, {
+  const res = await fetch(`${API_URL}/coins/${id}`, {
+    headers: {
+      accept: 'application/json',
+      'x-cg-demo-api-key': apiKey,
+    },
+  });
+  if (!res.ok) {
+    throw new Error('Something went wrong with fetching currencies');
+  }
+  const data = await res.json();
+  return data;
+}
+
+export async function searchCoin(query: string, apiKey: string) {
+  const res = await fetch(`${API_URL}/search?query=${query}`, {
     headers: {
       accept: 'application/json',
       'x-cg-demo-api-key': apiKey,

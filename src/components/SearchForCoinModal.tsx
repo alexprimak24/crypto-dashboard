@@ -4,7 +4,6 @@ import ErrorMessage from './ui/ErrorMessage';
 import SearchField from './SearchField';
 import { useSearchCoins } from '../hooks/useSearchCoins';
 import SearchedCoin from './SearchedCoin';
-import Message from './ui/Message';
 
 interface SearchForCoinModalProps {
   setIsSearchModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -40,8 +39,10 @@ export default function SearchForCoinModal({
 
           {error !== '' && <ErrorMessage message={error} />}
 
-          {coins.length === 0 && (
-            <Message message="Start typing to find the coin" />
+          {coins.length === 0 && !isLoading && (
+            <h2 className="mt-5 flex items-center justify-center text-xl">
+              🧑‍💻 Start typing to find the coin...
+            </h2>
           )}
 
           <ul className="mt-4 max-h-[400px] divide-y divide-gray-700 overflow-y-scroll">

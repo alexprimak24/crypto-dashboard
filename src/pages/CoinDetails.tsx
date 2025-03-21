@@ -1,6 +1,6 @@
 import { LoaderFunctionArgs, useLoaderData } from 'react-router-dom';
-import { fetchCoinInfo } from '../services/api';
-import { CoinInfo } from '../services/api/types';
+import { fetchCoinInfo } from '../services/coingeco';
+import { CoinInfo } from '../services/coingeco/types';
 import clsx from 'clsx';
 
 export default function CoinDetails() {

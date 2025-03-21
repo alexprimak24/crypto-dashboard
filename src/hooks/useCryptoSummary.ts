@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { fetchCryptoSummary } from '../services/api';
-import { CryptoSummary } from '../services/api/types';
+import { fetchCryptoSummary } from '../services/coingeco';
+import { CryptoSummary } from '../services/coingeco/types';
 
 export function useCryptoSummary(apiKey: string) {
   const [cryptoSummary, setCryptoSummary] = useState<CryptoSummary | null>(

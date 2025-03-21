@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { CoinSearchResult } from '../services/api/types';
-import { searchCoin } from '../services/api';
+import { CoinSearchResult } from '../services/coingeco/types';
+import { searchCoin } from '../services/coingeco';
 import { useDebounce } from './useDebounce';
 
 export function useSearchCoins(query: string, apiKey: string) {

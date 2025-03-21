@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { signInWithGithub } from '../services/auth';
+import { onAuthChange, signInWithGoogle } from '../services/api/auth';
+import { getUsersFavories } from '../services/api/apiFavoriteCoins';
 
 type FormFields = {
   email: string;
@@ -23,6 +24,8 @@ function Login() {
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     console.log(data);
   };
+
+  onAuthChange();
 
   return (
     //that approeach will help us to preventDefault + will validate that all the form fields are valid before calling onSubmit
@@ -56,7 +59,8 @@ function Login() {
         {errors.password && <div>{errors.password.message}</div>}
         <button type="submit">Login</button>
       </form>
-      <button onClick={signInWithGithub}>LOGIN WITH GITHUB</button>
+      <button onClick={signInWithGoogle}>LOGIN WITH GITHUB</button>
+      <button onClick={getUsersFavories}>Get users favorites</button>
     </>
   );
 }

@@ -7,6 +7,7 @@ import CoinDetails, { loader as coinDetailsLoader } from './pages/CoinDetails';
 import Error from './components/ui/Error';
 import AppLayout from './components/AppLayout';
 import Login from './pages/Login';
+import RedirectPage from './pages/Redirect';
 // import { fetchCoinInfo } from './services/api';
 
 // TODO
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         path: '/coin/:id',
         element: <CoinDetails />,
         loader: coinDetailsLoader,
+      },
+      {
+        path: '/redirect',
+        element: <RedirectPage />,
       },
       {
         path: '*',

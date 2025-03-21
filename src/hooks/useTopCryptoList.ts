@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { fetchTopCryptoList } from '../services/api';
-import { CryptoList } from '../services/api/types';
+import { fetchTopCryptoList } from '../services/coingeco';
+import { CryptoList } from '../services/coingeco/types';
 
 export function useTopCryptoList(
   apiKey: string,

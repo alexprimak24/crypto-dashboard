@@ -1,4 +1,4 @@
-import { CoinSearchResult } from '../services/api/types';
+import { CoinSearchResult } from '../services/coingeco/types';
 import { useNavigate } from 'react-router-dom';
 
 interface SearchedCoinProps {

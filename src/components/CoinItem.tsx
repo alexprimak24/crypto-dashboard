@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { CryptoList } from '../services/api/types';
+import { CryptoList } from '../services/coingeco/types';
 import { clsx } from 'clsx';
 import { useNavigate } from 'react-router-dom';
 const CoinItem = memo(function CoinItem({

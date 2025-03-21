@@ -2,7 +2,7 @@ import React from 'react';
 import CoinItem from './CoinItem';
 import Loader from './ui/Loader';
 import Message from './ui/Message';
-import { CryptoList } from '../services/api/types';
+import { CryptoList } from '../services/coingeco/types';
 
 interface CoinListProps {
   topCryptoList: CryptoList[] | null;

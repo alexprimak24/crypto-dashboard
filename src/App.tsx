@@ -19,6 +19,7 @@ import RedirectPage from './pages/Redirect';
 // 3. implement ability for the user to add coin to watchlist from coin info page
 // 4. The same goes to Dashboard coin representation
 
+// TODO V2, - don't forget to make everything beautiful + wrap redirect and portfolio with protected route
 const router = createBrowserRouter([
   {
     element: <AppLayout />,

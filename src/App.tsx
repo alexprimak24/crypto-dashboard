@@ -8,6 +8,7 @@ import Error from './components/ui/Error';
 import AppLayout from './components/AppLayout';
 import Login from './pages/Login';
 import RedirectPage from './pages/Redirect';
+import ProtectedRoute from './components/ProtectedRoute';
 // import { fetchCoinInfo } from './services/api';
 
 // TODO
@@ -34,8 +35,12 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: '/user/:id',
-        element: <MyPortfolio />,
+        path: '/user/:userId',
+        element: (
+          <ProtectedRoute>
+            <MyPortfolio />
+          </ProtectedRoute>
+        ),
       },
 
       {
@@ -45,7 +50,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/redirect',
-        element: <RedirectPage />,
+        element: (
+          <ProtectedRoute>
+            <RedirectPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '*',

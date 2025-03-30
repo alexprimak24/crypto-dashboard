@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import supabase from '../services/api/supabase';
 import { useNavigate } from 'react-router-dom';
+import { nameToUsername } from '../utils';
 
 export default function RedirectPage() {
   const navigate = useNavigate();
@@ -11,13 +12,10 @@ export default function RedirectPage() {
         data: { user },
       } = await supabase.auth.getUser();
 
-      console.log('I am here' + user);
       if (user && user.user_metadata && user.user_metadata.full_name) {
         const loggedInUsername = user.user_metadata.full_name;
 
-        const loggedInUsernameModified = loggedInUsername
-          .toLowerCase()
-          .replace(/\s+/g, '_');
+        const loggedInUsernameModified = nameToUsername(loggedInUsername);
 
         navigate(`/user/${loggedInUsernameModified}`);
       }

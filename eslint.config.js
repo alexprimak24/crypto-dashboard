@@ -18,6 +18,8 @@ export default tseslint.config(
       'react-refresh': reactRefresh,
     },
     rules: {
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
       'no-unused-vars': 'warn',
       'no-var': 'error',
       semi: ['warn', 'always'],

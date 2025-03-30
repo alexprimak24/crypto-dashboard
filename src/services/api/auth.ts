@@ -11,7 +11,6 @@ export async function getCurrentUser() {
     console.error(error.message);
     throw new Error('There is an error with getting currently active user');
   }
-  console.log(user)
   return user;
 }
 
@@ -30,8 +29,8 @@ export async function signInWithGoogle() {
   return user;
 }
 
-export async function onAuthChange() {
-  supabase.auth.onAuthStateChange((event, session) => {
-    console.log('Auth change', event, session);
-  });
+export async function signOut() {
+  const { error } = await supabase.auth.signOut();
+
+  if (error) throw new Error(error.message);
 }

@@ -4,7 +4,6 @@ import { useUser } from '../hooks/useUser';
 import Loader from './ui/LoaderFullScreen';
 import { nameToUsername } from '../utils';
 
-// set up context later to be able to check if user is logged in
 export default function ProtectedRoute({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
   const { userId } = useParams();

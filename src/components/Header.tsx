@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SearchForCoinModal from './SearchForCoinModal';
+import { useUser } from '../hooks/useUser';
+import { useLogout } from '../hooks/useLogout';
 
 export default function Header() {
+  const { currentUser } = useUser();
+  const { logout } = useLogout();
+
   const location = useLocation();
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   return (
@@ -18,9 +23,27 @@ export default function Header() {
         {isSearchModalOpen && (
           <SearchForCoinModal setIsSearchModalOpen={setIsSearchModalOpen} />
         )}
-        <Link to="/login" state={{ background: location }}>
-          Login
-        </Link>
+        {!currentUser && (
+          <Link to="/login" state={{ background: location }}>
+            Login
+          </Link>
+        )}
+        {currentUser && (
+          <div className="flex gap-2">
+            <p className="rounded-3xl border border-blue-400 px-4 py-2">
+              Welcome{' '}
+              <span className="text-blue-400">
+                {currentUser.user.user_metadata.name}
+              </span>
+            </p>
+            <button
+              className="cursor-pointer rounded-3xl bg-blue-400 px-4 py-2 text-black transition-colors duration-300 hover:bg-blue-600"
+              onClick={logout}
+            >
+              Logout
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
